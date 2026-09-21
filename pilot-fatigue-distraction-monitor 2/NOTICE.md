@@ -1,23 +1,4 @@
-# Attribution Notice
-
-This project is a research derivative. In the interest of academic honesty and
-in compliance with the MIT License under which the base project is released,
-this file states plainly what is reused, what is modified, and what is new.
-
-## Base project (reused under MIT License)
-
-The computer-vision foundation of this project — MediaPipe face-landmark
-integration, Eye Aspect Ratio (EAR) computation, the metric head-pose solver
-(`solvePnP` + the Procrustes/PCF geometry pipeline in `pilot_monitor/face_geometry.py`,
-itself a port of Google's MediaPipe C++ attention-mesh code), the original
-rolling-PERCLOS calculation, camera calibration tooling, and the original
-project's CLI/dashboard scaffolding, are derived from:
-
-> Ettore Candeloro, **driver-state-detection**, https://github.com/e-candeloro/Driver-State-Detection
-> Licensed under the MIT License (see `LICENSE`).
-
-The original MIT license and copyright notice are preserved unmodified in
-`LICENSE`, as the license requires.
+varssssz
 
 ## What is new in this project
 

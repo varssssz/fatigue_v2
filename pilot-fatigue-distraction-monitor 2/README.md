@@ -12,11 +12,6 @@ thresholds.
 > outputs are labeled as behavioural-proxy risk, never as a determination of
 > the pilot's internal state.
 
-This project builds on top of the open-source
-[driver-state-detection](https://github.com/e-candeloro/Driver-State-Detection)
-project (MIT License) for its MediaPipe/EAR/head-pose computer-vision layer.
-See `NOTICE.md` for exactly what is reused vs. newly built for this project.
-
 ## What this system does that the base project did not
 
 | Capability | Base project | This project |
@@ -104,8 +99,3 @@ uv run pytest
 uv run black --check pilot_monitor evaluation camera_calibration tests
 uv run isort --check-only pilot_monitor evaluation camera_calibration tests
 ```
-
-## License
-
-MIT — see `LICENSE`. See `NOTICE.md` for what is derived from
-`driver-state-detection` versus original to this project.
