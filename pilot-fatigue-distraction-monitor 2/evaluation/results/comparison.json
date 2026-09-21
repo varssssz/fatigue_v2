@@ -1,0 +1,242 @@
+{
+  "pilot_A_typical": {
+    "note": "Typical baseline; control subject.",
+    "gru_ran": false,
+    "model1_fixed_threshold": {
+      "fatigue": {
+        "precision": 0.815,
+        "recall": 0.93,
+        "f1": 0.869,
+        "false_positive_rate": 0.045,
+        "false_negative_rate": 0.07,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.593,
+        "recall": 0.957,
+        "f1": 0.732,
+        "false_positive_rate": 0.141,
+        "false_negative_rate": 0.043,
+        "n": 7650
+      }
+    },
+    "model2_personal_statistics": {
+      "fatigue": {
+        "precision": 0.535,
+        "recall": 0.516,
+        "f1": 0.526,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.484,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.633,
+        "recall": 0.77,
+        "f1": 0.695,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.23,
+        "n": 7650
+      }
+    },
+    "model3_personal_plus_gru": {
+      "fatigue": {
+        "precision": 0.535,
+        "recall": 0.516,
+        "f1": 0.526,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.484,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.633,
+        "recall": 0.77,
+        "f1": 0.695,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.23,
+        "n": 7650
+      },
+      "fatigue_flap_rate_per_min": 0.23532487906915936,
+      "distraction_flap_rate_per_min": 0.23532487906915936
+    }
+  },
+  "pilot_B_narrow_eyes": {
+    "note": "Naturally narrow eyes: normal EAR sits close to the universal closed-eye threshold (0.15), so a fixed-threshold system runs hot on this pilot even at rest.",
+    "gru_ran": false,
+    "model1_fixed_threshold": {
+      "fatigue": {
+        "precision": 0.558,
+        "recall": 0.969,
+        "f1": 0.709,
+        "false_positive_rate": 0.164,
+        "false_negative_rate": 0.031,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.592,
+        "recall": 0.957,
+        "f1": 0.731,
+        "false_positive_rate": 0.141,
+        "false_negative_rate": 0.043,
+        "n": 7650
+      }
+    },
+    "model2_personal_statistics": {
+      "fatigue": {
+        "precision": 0.458,
+        "recall": 0.514,
+        "f1": 0.484,
+        "false_positive_rate": 0.13,
+        "false_negative_rate": 0.486,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.617,
+        "recall": 0.727,
+        "f1": 0.667,
+        "false_positive_rate": 0.097,
+        "false_negative_rate": 0.273,
+        "n": 7650
+      }
+    },
+    "model3_personal_plus_gru": {
+      "fatigue": {
+        "precision": 0.458,
+        "recall": 0.514,
+        "f1": 0.484,
+        "false_positive_rate": 0.13,
+        "false_negative_rate": 0.486,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.617,
+        "recall": 0.727,
+        "f1": 0.667,
+        "false_positive_rate": 0.097,
+        "false_negative_rate": 0.273,
+        "n": 7650
+      },
+      "fatigue_flap_rate_per_min": 0.23532487906915936,
+      "distraction_flap_rate_per_min": 0.23532487906915936
+    }
+  },
+  "pilot_C_active_scanner": {
+    "note": "Naturally large head movement (active instrument scanning): normal behaviour regularly exceeds the universal 20-degree pose threshold, so a fixed-threshold system over-fires DISTRACTED here.",
+    "gru_ran": false,
+    "model1_fixed_threshold": {
+      "fatigue": {
+        "precision": 0.773,
+        "recall": 0.909,
+        "f1": 0.836,
+        "false_positive_rate": 0.057,
+        "false_negative_rate": 0.091,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.549,
+        "recall": 0.97,
+        "f1": 0.701,
+        "false_positive_rate": 0.171,
+        "false_negative_rate": 0.03,
+        "n": 7650
+      }
+    },
+    "model2_personal_statistics": {
+      "fatigue": {
+        "precision": 0.565,
+        "recall": 0.58,
+        "f1": 0.573,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.42,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.592,
+        "recall": 0.648,
+        "f1": 0.619,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.352,
+        "n": 7650
+      }
+    },
+    "model3_personal_plus_gru": {
+      "fatigue": {
+        "precision": 0.565,
+        "recall": 0.58,
+        "f1": 0.573,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.42,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.592,
+        "recall": 0.648,
+        "f1": 0.619,
+        "false_positive_rate": 0.096,
+        "false_negative_rate": 0.352,
+        "n": 7650
+      },
+      "fatigue_flap_rate_per_min": 0.23532487906915936,
+      "distraction_flap_rate_per_min": 0.23532487906915936
+    }
+  },
+  "pilot_D_frequent_blinker": {
+    "note": "Naturally frequent blinker; used to check that a higher personal-normal blink rate is not itself treated as fatigue.",
+    "gru_ran": false,
+    "model1_fixed_threshold": {
+      "fatigue": {
+        "precision": 0.763,
+        "recall": 0.968,
+        "f1": 0.854,
+        "false_positive_rate": 0.064,
+        "false_negative_rate": 0.032,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.592,
+        "recall": 0.957,
+        "f1": 0.731,
+        "false_positive_rate": 0.142,
+        "false_negative_rate": 0.043,
+        "n": 7650
+      }
+    },
+    "model2_personal_statistics": {
+      "fatigue": {
+        "precision": 0.484,
+        "recall": 0.548,
+        "f1": 0.514,
+        "false_positive_rate": 0.125,
+        "false_negative_rate": 0.452,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.531,
+        "recall": 0.695,
+        "f1": 0.602,
+        "false_positive_rate": 0.131,
+        "false_negative_rate": 0.305,
+        "n": 7650
+      }
+    },
+    "model3_personal_plus_gru": {
+      "fatigue": {
+        "precision": 0.484,
+        "recall": 0.548,
+        "f1": 0.514,
+        "false_positive_rate": 0.125,
+        "false_negative_rate": 0.452,
+        "n": 7650
+      },
+      "distraction": {
+        "precision": 0.531,
+        "recall": 0.695,
+        "f1": 0.602,
+        "false_positive_rate": 0.131,
+        "false_negative_rate": 0.305,
+        "n": 7650
+      },
+      "fatigue_flap_rate_per_min": 0.23532487906915936,
+      "distraction_flap_rate_per_min": 0.23532487906915936
+    }
+  }
+}

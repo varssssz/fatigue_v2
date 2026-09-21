@@ -1,0 +1,34 @@
+[project]
+name = "pilot-fatigue-distraction-monitor"
+version = "0.1.0"
+description = "Research prototype: personalized, temporal computer-vision monitoring of pilot fatigue- and distraction-related behavioural risk"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [{ name = "Project author" }]
+dependencies = [
+    "mediapipe>=1.0.0,<2",
+    "numpy>=2.0,<3",
+    "opencv-contrib-python>=5.0.0.93,<6",
+    "torch>=2.2,<3",
+    "matplotlib>=3.8,<4",
+]
+
+[project.scripts]
+pilot-monitor = "pilot_monitor.main:main"
+pilot-monitor-download-model = "pilot_monitor.download_model:main"
+pilot-monitor-calibrate = "pilot_monitor.calibration:main"
+pilot-monitor-demo = "evaluation.synthetic_demo:main"
+
+[dependency-groups]
+dev = [
+    "black>=26.0,<27",
+    "isort>=8.0,<9",
+    "pytest>=9.0,<10",
+]
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
