@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FATIGUE // Pilot Monitor — UI Demo</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <canvas id="particle-field" aria-hidden="true"></canvas>
+  <div class="scanlines"></div>
+  <div class="grid-bg"></div>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">◇</div>
+        <div>
+          <h1>FATIGUE // PILOT MONITOR</h1>
+          <p>PERSONALIZED TEMPORAL ANALYSIS · FRONTEND DEMO</p>
+        </div>
+      </div>
+      <div class="top-status">
+        <div class="status-chip">
+          <span>PILOT</span>
+          <strong>DEMO-01</strong>
+        </div>
+        <div class="status-chip">
+          <span>GRU</span>
+          <strong id="gru-status">SIM</strong>
+        </div>
+        <div class="status-chip">
+          <span>LOCAL</span>
+          <strong id="clock">--:--:--</strong>
+        </div>
+        <div class="connection live">
+          <i></i>
+          <span>DEMO MODE</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <aside class="left-column">
+        <section class="panel session-panel">
+          <div class="panel-title">
+            <span>SESSION TELEMETRY</span>
+            <b>LIVE</b>
+          </div>
+          <div class="metric-list">
+            <div><span>SESSION</span><strong id="session-time">00:00:00</strong></div>
+            <div><span>FPS</span><strong id="fps">30.0</strong></div>
+            <div><span>CAMERA</span><strong>720P</strong></div>
+            <div><span>FACE</span><strong id="face">LOCKED</strong></div>
+            <div><span>QUALITY</span><strong id="quality">GOOD</strong></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <span>EYE ANALYSIS</span>
+            <b>STREAM</b>
+          </div>
+          <div class="telemetry-grid">
+            <div><span>EAR</span><strong id="ear">0.31</strong></div>
+            <div><span>PERCLOS</span><strong id="perclos">8.2%</strong></div>
+            <div><span>BLINK RATE</span><strong id="blink">14/m</strong></div>
+            <div><span>GAZE</span><strong id="gaze">CENTER</strong></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <span>HEAD POSE</span>
+            <b>DEG</b>
+          </div>
+          <div class="pose-bars">
+            <div class="pose-row"><span>ROLL</span><div><i id="roll-bar"></i></div><strong id="roll">-1.2°</strong></div>
+            <div class="pose-row"><span>PITCH</span><div><i id="pitch-bar"></i></div><strong id="pitch">1.8°</strong></div>
+            <div class="pose-row"><span>YAW</span><div><i id="yaw-bar"></i></div><strong id="yaw">-2.4°</strong></div>
+          </div>
+        </section>
+
+        <section class="panel baseline-panel">
+          <div class="panel-title">
+            <span>CALIBRATION BASELINE</span>
+            <b>MAD</b>
+          </div>
+          <div class="baseline">
+            <div><span>EAR</span><i><b style="width:61%"></b></i><strong>0.31</strong></div>
+            <div><span>PERCLOS</span><i><b style="width:24%"></b></i><strong>6.4%</strong></div>
+            <div><span>BLINK</span><i><b style="width:43%"></b></i><strong>12/m</strong></div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="center-column">
+        <div class="camera-hud">
+          <div class="camera-space-glow"></div>
+          <div class="camera-frame">
+            <video id="webcam" autoplay muted playsinline></video>
+            <div class="camera-placeholder" id="camera-placeholder">
+              <div class="camera-icon">◉</div>
+              <strong>CAMERA OFFLINE</strong>
+              <span>Click START CAMERA</span>
+            </div>
+            <div class="camera-overlay"></div>
+            <div class="face-reticle">
+              <span></span><span></span><span></span><span></span>
+              <label>FACE TRACK</label>
+            </div>
+            <div class="scan-line"></div>
+          </div>
+
+          <div class="hud-chip top-left">
+            <span>QUALITY</span><strong id="hud-quality">GOOD</strong>
+          </div>
+          <div class="hud-chip top-right">
+            <span>FPS</span><strong id="hud-fps">30.0</strong>
+          </div>
+          <div class="hud-chip bottom-left">
+            <span>FACE</span><strong id="hud-face">LOCKED</strong>
+          </div>
+          <div class="hud-chip bottom-right">
+            <span>GRU Z</span><strong id="gru-z">0.42</strong>
+          </div>
+          <div class="camera-label">LIVE PILOT CAMERA</div>
+        </div>
+
+        <div class="controls">
+          <button id="camera-btn">START CAMERA</button>
+          <button id="demo-btn" class="active">DEMO TELEMETRY: ON</button>
+        </div>
+
+        <div class="alert-row">
+          <div class="alert-box normal" id="fatigue-alert">
+            <span>FATIGUE</span><strong id="fatigue-state">NORMAL</strong>
+          </div>
+          <div class="alert-box normal" id="distraction-alert">
+            <span>DISTRACTION</span><strong id="distraction-state">NORMAL</strong>
+          </div>
+        </div>
+
+        <div class="feature-strip">
+          <div><span>EAR</span><strong id="strip-ear">0.31</strong></div>
+          <div><span>GAZE</span><strong id="strip-gaze">CENTER</strong></div>
+          <div><span>MAR</span><strong id="mar">0.18</strong></div>
+          <div><span>ROLL</span><strong id="strip-roll">-1.2°</strong></div>
+          <div><span>PITCH</span><strong id="strip-pitch">1.8°</strong></div>
+          <div><span>YAW</span><strong id="strip-yaw">-2.4°</strong></div>
+        </div>
+      </section>
+
+      <aside class="right-column">
+        <section class="panel risk-panel">
+          <div class="panel-title">
+            <span>RISK ASSESSMENT</span>
+            <b>20S WINDOW</b>
+          </div>
+          <div class="risk-gauges">
+            <div class="gauge-wrap">
+              <div class="gauge" id="fatigue-gauge"><div><strong id="fatigue-value">27%</strong><span>FATIGUE</span></div></div>
+            </div>
+            <div class="gauge-wrap">
+              <div class="gauge cyan" id="distraction-gauge"><div><strong id="distraction-value">12%</strong><span>DISTRACTION</span></div></div>
+            </div>
+          </div>
+          <div class="risk-message" id="risk-message">LOW RISK · CONTINUE MONITORING</div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <span>EVENT ACTIVITY</span>
+            <b>EVENTS / MIN</b>
+          </div>
+          <div class="event-list">
+            <div><span>LONG BLINK</span><i><b id="long-blink-bar"></b></i><strong id="long-blink">2</strong></div>
+            <div><span>MICROSLEEP</span><i><b id="micro-bar"></b></i><strong id="micro">0</strong></div>
+            <div><span>GAZE OFF</span><i><b id="gaze-bar"></b></i><strong id="gaze-rate">3</strong></div>
+            <div><span>HEAD TURN</span><i><b id="head-bar"></b></i><strong id="head-rate">1</strong></div>
+          </div>
+        </section>
+
+        <section class="panel chart-panel">
+          <div class="panel-title">
+            <span>FATIGUE HISTORY</span>
+            <b>LIVE</b>
+          </div>
+          <canvas id="fatigue-chart"></canvas>
+        </section>
+
+        <section class="panel log-panel">
+          <div class="panel-title">
+            <span>SESSION LOG</span>
+            <b id="log-count">4</b>
+          </div>
+          <div class="log" id="log">
+            <div><time>20:18:01</time><span class="ok">SYSTEM READY</span></div>
+            <div><time>20:18:03</time><span>CAMERA MODULE INITIALIZED</span></div>
+            <div><time>20:18:05</time><span>FACE TRACK LOCKED</span></div>
+            <div><time>20:18:07</time><span class="ok">BASELINE WITHIN RANGE</span></div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <span>FATIGUE_V2 · FRONTEND PREVIEW · NO BACKEND CONNECTED</span>
+      <button id="reset-btn">RESET DEMO</button>
+    </footer>
+  </div>
+
+  <script src="static/app.js"></script>
+</body>
+</html>
